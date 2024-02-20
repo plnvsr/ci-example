@@ -1,7 +1,7 @@
 import websocket
 import json
-import time
 import ssl 
+import threading
 
 # Print the received data
 def on_message(ws, message):
@@ -14,9 +14,10 @@ def on_error(ws, error):
 def on_close(ws, status_code, close_msg):
     print("Connection closed.")
 
-# Open a connection to receive btcusdt data for 5 seconds, then close the socket
+# Open a connection to receive data for 1 second, then close the socket
 def on_open(ws):
     ws.send(json.dumps({"method": "SUBSCRIBE", "params": ["btcusdt@trade"], "id": 1}))
+    threading.Timer(1, ws.close).start()
 
 if __name__ == "__main__":
     websocket.enableTrace(True)
