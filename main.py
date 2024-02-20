@@ -21,7 +21,7 @@ def on_open(ws):
 
 if __name__ == "__main__":
     websocket.enableTrace(True)
-    ws = websocket.WebSocketApp("wss://stream.binance.com:9443/ws",
+    ws = websocket.WebSocketApp("wss://stream.binance.us:9443/ws",
                                 on_message = on_message,
                                 on_error = on_error,
                                 on_close = on_close,
