@@ -15,5 +15,5 @@ jobs:
           python -m pip install --upgrade pip 
           pip install -r requirements.txt
       - name: Run the main script and grep output
-        run: python main.py | grep "Connection closed."
+        run: python main.py | grep "BTCUSDT"
       
